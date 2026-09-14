@@ -84,6 +84,12 @@ React 18 · TypeScript · Vite 6 · Tailwind CSS v4 · React Router · Framer Mo
 State lives in a React context and is persisted to `localStorage`, so deposits and redeemed
 rewards survive a page refresh.
 
+## Presentation deck
+
+`deck/ENGO-Smart-Waste-Management.pptx` is a 12-slide 16:9 deck built from real screenshots of
+this prototype. It is fully generated — see [deck/README.md](deck/README.md) to rebuild it after
+the app changes.
+
 ## Assets
 
 Icons are from [Lucide](https://lucide.dev). The logo, leaf illustrations and decorative
