@@ -1,0 +1,131 @@
+@import 'tailwindcss';
+
+@theme {
+  /* ---- Brand: deep natural green → fresh light green ---- */
+  --color-brand-950: #08261a;
+  --color-brand-900: #0f3b2a;
+  --color-brand-800: #16503a;
+  --color-brand-700: #1c6a4a;
+  --color-brand-600: #248a5e;
+  --color-brand-500: #2fa86f;
+  --color-brand-400: #5bc98c;
+  --color-brand-300: #8edcae;
+  --color-brand-200: #bcebce;
+  --color-brand-100: #dcf5e5;
+  --color-brand-50: #f0faf4;
+
+  /* ---- Neutrals ---- */
+  --color-ink-900: #0e1a15;
+  --color-ink-700: #2c3a34;
+  --color-ink-500: #5c6b64;
+  --color-ink-400: #8a9993;
+  --color-ink-200: #dfe5e2;
+  --color-ink-100: #edf1ef;
+  --color-canvas: #f5f7f6;
+
+  /* ---- Semantic ---- */
+  --color-danger-600: #d64545;
+  --color-danger-500: #e4584f;
+  --color-danger-100: #fdecea;
+  --color-danger-50: #fef5f4;
+  --color-warn-600: #c97a11;
+  --color-warn-100: #fdf0dc;
+  --color-info-600: #2f6fb5;
+  --color-info-100: #e7f0fa;
+
+  --font-sans: 'Plus Jakarta Sans', ui-sans-serif, system-ui, -apple-system, 'Segoe UI', Roboto, sans-serif;
+
+  --radius-xl2: 1.25rem;
+  --radius-xl3: 1.75rem;
+
+  --shadow-soft: 0 1px 2px rgba(14, 26, 21, 0.04), 0 8px 24px -12px rgba(14, 26, 21, 0.12);
+  --shadow-lift: 0 2px 6px rgba(14, 26, 21, 0.05), 0 18px 40px -18px rgba(14, 26, 21, 0.22);
+  --shadow-nav: 0 -6px 28px -12px rgba(14, 26, 21, 0.18);
+}
+
+@layer base {
+  * {
+    -webkit-tap-highlight-color: transparent;
+  }
+  html,
+  body,
+  #root {
+    height: 100%;
+  }
+  body {
+    font-family: var(--font-sans);
+    background: var(--color-canvas);
+    color: var(--color-ink-900);
+    -webkit-font-smoothing: antialiased;
+    text-rendering: optimizeLegibility;
+    overscroll-behavior-y: none;
+  }
+  button {
+    font: inherit;
+  }
+}
+
+@layer utilities {
+  .no-scrollbar::-webkit-scrollbar {
+    display: none;
+  }
+  .no-scrollbar {
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+  }
+  .tabular {
+    font-variant-numeric: tabular-nums;
+  }
+}
+
+/* Screen-level scroll region */
+.screen-scroll {
+  overflow-y: auto;
+  overflow-x: hidden;
+  -webkit-overflow-scrolling: touch;
+}
+
+@keyframes ww-ping {
+  0% {
+    transform: scale(0.82);
+    opacity: 0.55;
+  }
+  70% {
+    transform: scale(1.45);
+    opacity: 0;
+  }
+  100% {
+    transform: scale(1.45);
+    opacity: 0;
+  }
+}
+.ww-ping {
+  animation: ww-ping 2s cubic-bezier(0, 0, 0.2, 1) infinite;
+}
+
+@keyframes ww-float {
+  0%,
+  100% {
+    transform: translateY(0) rotate(0deg);
+  }
+  50% {
+    transform: translateY(-9px) rotate(4deg);
+  }
+}
+.ww-float {
+  animation: ww-float 5s ease-in-out infinite;
+}
+
+@keyframes ww-shimmer {
+  100% {
+    transform: translateX(100%);
+  }
+}
+.ww-shimmer::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.55), transparent);
+  transform: translateX(-100%);
+  animation: ww-shimmer 1.6s infinite;
+}
